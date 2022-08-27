@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <div class="form">
+    <form [formGroup]="formGroup">
+      <div class="name">
+        <label for="name">სახელი</label>
+        <input type="text" formControlName="name" />
+
+        <small
+          [class.d-none]="
+            formGroup.get('name')?.valid || formGroup.get('name')?.untouched
+          "
+          >name is required</small
+        >
+      </div>
+
+      <div class="surname">
+        <label for="surname">გვარი</label>
+        <input type="text" formControlName="surname" />
+      </div>
+
+      <br />
+      <select
+        name="team"
+        id=""
+        formControlName="team"
+        (change)="teamValueChange($event)"
+      >
+        <option value="">თიმი</option>
+        <option [value]="team.id" *ngFor="let team of teamList">
+          {{ team.name }}
+        </option>
+      </select>
+
+      <select
+        name="position"
+        id=""
+        formControlName="position"
+        (change)="positionValueChange($event)"
+      >
+        <option value="">პოზიცია</option>
+        <option [value]="position.id" *ngFor="let position of positionList">
+          {{ position.name }}
+        </option>
+      </select>
+
+      <br />
+
+      <label for="email">მეილი</label>
+      <input type="text" formControlName="email" />
+
+      <br />
+
+      <label for="tel">ტელეფონის ნომერი</label>
+      <input type="text" formControlName="tel" />
+
+      <button type="button" (click)="onClick()">შემდეგი</button>
+    </form>
+  </div>
+</div>

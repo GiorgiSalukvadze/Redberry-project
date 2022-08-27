@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+.wrapper {
+  width: 1920px;
+  height: 1080px;
+  .form {
+    position: absolute;
+    height: 726px;
+    left: 347px;
+    right: 347px;
+    top: 157px;
+    background: #ffffff;
+    border-radius: 18px;
+  }
+  .name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+    gap: 8px;
+
+    position: absolute;
+    width: 455px;
+    height: 134px;
+    left: calc(50% - 455px / 2 - 235.5px);
+    top: 88px;
+  }
+  .surname {
+    display: inline-block;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+    gap: 8px;
+
+    position: absolute;
+    width: 456px;
+    height: 134px;
+    left: 967px;
+    top: 245px;
+  }
+}
+
+.d-none {
+  display: none;
+}
