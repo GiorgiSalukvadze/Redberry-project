@@ -16,7 +16,7 @@ import { MainModule } from './features/main/main.module';
     FormsModule,
     MainModule,
     HttpClientModule,
-    LaptopModule
+    LaptopModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

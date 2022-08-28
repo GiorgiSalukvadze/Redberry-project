@@ -21,6 +21,7 @@ export class FormComponent implements OnInit {
   positionList: any;
   teamId!: number;
   userInfo: [] = [];
+  underLineBoolean!: boolean;
 
   constructor(private api: APIService, private route: Router) {}
 
@@ -42,6 +43,7 @@ export class FormComponent implements OnInit {
   returnedValues: any;
 
   ngOnInit(): void {
+    this.underLineBoolean = true;
     this.api.getTeamMethod().subscribe((res) => {
       this.teamList = res.data;
       console.log(this.teamList);
@@ -88,7 +90,9 @@ export class FormComponent implements OnInit {
   onClick(): void {
     console.log(this.formGroup);
     if (this.formGroup.valid) {
+      this.underLineBoolean = false;
       this.userInfo = this.formGroup.value;
+      localStorage.setItem('formValues', JSON.stringify(this.formGroup.value));
       this.route.navigate(['./laptop']);
     }
   }

@@ -1,29 +1,68 @@
 <div class="wrapper">
+  <div class="head-wrapper">
+    <a class="personal">თანამშრომლის ინფო</a>
+    <a routerLink="/laptop">ლეპტოპის მახასიათებლები</a>
+    <div *ngIf="underLineBoolean; else right">
+      <hr class="underline" />
+    </div>
+    <ng-template #right>
+      <hr class="underline-2" />
+    </ng-template>
+  </div>
   <div class="form">
     <form [formGroup]="formGroup">
-      <div class="name">
-        <label for="name">სახელი</label>
-        <input type="text" formControlName="name" />
+      <div class="group">
+        <div class="name">
+          <label for="name">სახელი</label>
+          <input
+            type="text"
+            formControlName="name"
+            [class.red-border]="
+              formGroup.get('name')?.invalid && formGroup.get('name')?.touched
+            "
+          />
 
-        <small
-          [class.d-none]="
-            formGroup.get('name')?.valid || formGroup.get('name')?.untouched
-          "
-          >name is required</small
-        >
+          <small
+            *ngIf="
+              formGroup.get('name')?.valid || formGroup.get('name')?.untouched;
+              else explain
+            "
+            
+            >მინიმუმ 2 სიმბოლო, ქართული ასოები</small
+          >
+          <ng-template #explain>#წერე ქართულად</ng-template>
+        </div>
+
+        <div class="surname">
+          <label for="surname">გვარი</label>
+          <input
+            type="text"
+            formControlName="surname"
+            [class.red-border]="
+              formGroup.get('surname')?.invalid &&
+              formGroup.get('surname')?.touched
+            "
+          />
+          <small
+            *ngIf="
+              formGroup.get('surname')?.valid ||
+                formGroup.get('surname')?.untouched;
+              else explain
+            "
+            >მინიმუმ 2 სიმბოლო, ქართული ასოები</small
+          >
+          <ng-template #explain>#წერე ქართულად</ng-template>
+        </div>
       </div>
-
-      <div class="surname">
-        <label for="surname">გვარი</label>
-        <input type="text" formControlName="surname" />
-      </div>
-
       <br />
       <select
         name="team"
-        id=""
+        id="team"
         formControlName="team"
         (change)="teamValueChange($event)"
+        [class.red-border]="
+          formGroup.get('team')?.invalid && formGroup.get('team')?.touched
+        "
       >
         <option value="">თიმი</option>
         <option [value]="team.id" *ngFor="let team of teamList">
@@ -31,11 +70,17 @@
         </option>
       </select>
 
+      <br />
+
       <select
         name="position"
-        id=""
+        id="position"
         formControlName="position"
         (change)="positionValueChange($event)"
+        [class.red-border]="
+          formGroup.get('position')?.invalid &&
+          formGroup.get('position')?.touched
+        "
       >
         <option value="">პოზიცია</option>
         <option [value]="position.id" *ngFor="let position of positionList">
@@ -45,13 +90,47 @@
 
       <br />
 
-      <label for="email">მეილი</label>
-      <input type="text" formControlName="email" />
+      <label for="email" class="mail">მეილი</label>
+      <br />
+      <input
+        type="text"
+        formControlName="email"
+        id="mail"
+        [class.red-border]="
+          formGroup.get('email')?.invalid && formGroup.get('email')?.touched
+        "
+      />
+      <small
+        *ngIf="
+          formGroup.get('email')?.valid || formGroup.get('email')?.untouched;
+          else email
+        "
+        class="marg"
+        >უნდა მთავრდებოდეს @redberry.ge-ით</small
+      >
+      <ng-template #email class="marg">გამოიყენე რედბერის მეილი</ng-template>
 
       <br />
-
-      <label for="tel">ტელეფონის ნომერი</label>
-      <input type="text" formControlName="tel" />
+      <div class="wrapper-tel">
+        <label for="tel" class="tel">ტელეფონის ნომერი</label>
+        <br />
+        <input
+          type="text"
+          formControlName="tel"
+          id="tel"
+          [class.red-border]="
+            formGroup.get('tel')?.invalid && formGroup.get('tel')?.touched
+          "
+        />
+        <small
+          *ngIf="
+            formGroup.get('tel')?.valid || formGroup.get('tel')?.untouched;
+            else tel
+          "
+          >დაიწყე +995-ით</small
+        >
+        <ng-template #tel>მიუთითე სწორი მობილურის ნომერი</ng-template>
+      </div>
 
       <button type="button" (click)="onClick()">შემდეგი</button>
     </form>
