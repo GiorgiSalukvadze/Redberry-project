@@ -68,14 +68,16 @@ export class FormComponent implements OnInit {
 
     this.storageValues = localStorage.getItem('formValues');
     this.returnedValues = JSON.parse(this.storageValues);
-    this.formGroup.setValue({
-      name: this.returnedValues.name,
-      surname: this.returnedValues.surname,
-      team: this.returnedValues.team,
-      position: this.returnedValues.position,
-      email: this.returnedValues.email,
-      tel: this.returnedValues.tel,
-    });
+    if (this.returnedValues) {
+      this.formGroup.setValue({
+        name: this.returnedValues.name,
+        surname: this.returnedValues.surname,
+        team: this.returnedValues.team,
+        position: this.returnedValues.position,
+        email: this.returnedValues.email,
+        tel: this.returnedValues.tel,
+      });
+    }
 
     this.api.getPositionMethod().subscribe((res) => {
       this.positionList = res.data.filter((obj: any) => {
