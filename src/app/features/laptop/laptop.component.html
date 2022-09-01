@@ -1,3 +1,4 @@
+<div class="body-wrapper">
 <div class="head-wrapper">
   <a routerLink="/register" class="personal">თანამშრომლის ინფო</a>
   <a>ლეპტოპის მახასიათებლები</a>
@@ -8,3 +9,150 @@
     <hr class="underline-2" />
   </ng-template>
 </div>
+<div class="form-wrapper">
+  <form [formGroup]="formGroup" class="form">
+    <div class="image">
+      <div class="img" *ngIf="imgSrc == null">  
+      <h2 class="image-txt">ჩააგდე ან ატვირთე <br>
+        ლეპტოპის ფოტო</h2>
+      <label for="image">ატვირთე</label>
+      <input id="image" type="file" (change)="onFileSelected($event)" formControlName="laptop_image">
+      </div>
+      <img [src]="imgSrc" style="display: none" onload="this.style.display=''">  
+    </div>
+    <div class="reupload" *ngIf="imgSrc !== null">
+      <h2>@ტვირთა შოთო სიხარულიძემ</h2>
+      <label for="image">თავიდან ატვირთე</label>
+      <input id="image" type="file" (change)="onFileSelected($event)">
+    </div>
+    <div class="col-1">
+    <div class="lap-name">
+    <label for="name" >ლეპტოპის სახელი</label>
+    <input type="text" formControlName="laptop_name" [class.red-border]="
+    formGroup.get('laptop_name')?.invalid && formGroup.get('laptop_name')?.touched
+  ">
+    <small
+            *ngIf="
+              formGroup.get('laptop_name')?.valid || formGroup.get('laptop_name')?.untouched;
+              else explain
+            "
+            
+            >ლათინური ასოები, ციფრები, !@#$%^&*()_+= </small
+          >
+          <ng-template #explain>შეიყვანე სწორი მონაცემი</ng-template>
+    </div>
+    <div class="lap-brand">
+    <select name="brand" id="brand" formControlName="laptop_brand" [class.red-border]="
+    formGroup.get('laptop_brand')?.invalid && formGroup.get('laptop_brand')?.touched
+  ">
+  <option value="">ლეპტოპის ბრენდი</option>
+  <option [value]="brand.id" *ngFor="let brand of brandList">
+    {{brand.name}}
+  </option> 
+    </select>
+    </div>
+    </div>
+    <br>
+    <hr>
+    <div class="col-2">
+    <div class="cpu">
+    <select name="cpu" id="cpu" formControlName="laptop_cpu" [class.red-border]="
+    formGroup.get('laptop_cpu')?.invalid && formGroup.get('laptop_cpu')?.touched">
+    <option value="">CPU</option>
+    <option [value]="cpu.name" *ngFor="let cpu of cpuList">
+      {{ cpu.name }}
+    </option>  
+  </select>
+    </div>
+    <div class="cores">
+    <label for="cpu-core">CPU-ს ბირთვი</label>
+    <input type="text" id="cpu-core" formControlName="laptop_cpu_cores" [class.red-border]="
+    formGroup.get('laptop_cpu_cores')?.invalid && formGroup.get('laptop_cpu_cores')?.touched">
+    <small
+            *ngIf="
+              formGroup.get('laptop_cpu_cores')?.valid || formGroup.get('laptop_cpu_cores')?.untouched;
+              else explain
+            "
+            
+            >მხოლოდ რიცხვები</small
+          >
+          <ng-template #explain>გამოიყენე მხოლოდ რიცხვები</ng-template>
+    </div>
+    <div class="threads">
+    <label for="cpu-threads" >CPU-ს ნაკადი</label>
+    <input type="text" id="cpu-threads" formControlName="laptop_cpu_threads" [class.red-border]="
+    formGroup.get('laptop_cpu_threads')?.invalid && formGroup.get('laptop_cpu_threads')?.touched">
+    <small
+            *ngIf="
+              formGroup.get('laptop_cpu_threads')?.valid || formGroup.get('laptop_cpu_threads')?.untouched;
+              else explain
+            "
+            
+            >მხოლოდ რიცხვები</small
+          >
+          <ng-template #explain>გამოიყენე მხოლოდ რიცხვები</ng-template>
+    </div>
+    </div>
+    <br>
+    <div class="col-3">
+    <div class="ram">
+    <label for="RAM">ლეპტოპის RAM(GB)</label>
+    <input type="text" id="RAM" formControlName="laptop_ram" [class.red-border]="
+    formGroup.get('laptop_ram')?.invalid && formGroup.get('laptop_ram')?.touched">
+    <small
+            *ngIf="
+              formGroup.get('laptop_ram')?.valid || formGroup.get('laptop_ram')?.untouched;
+              else explain
+            "
+            
+            >მხოლოდ რიცხვები</small
+          >
+          <ng-template #explain>გამოიყენე მხოლოდ რიცხვები</ng-template>
+    </div>
+    <div class="lap-type">
+    <label for="radio">მეხსიერების ტიპი</label>
+    <div class="radios-wrapper">
+    <input type="radio" id="SSD" name="laptop_type" value="SSD" formControlName="laptop_type" class="radios">
+    <label for="SSD">SSD</label>
+    <input type="radio" id="HDD" name="HDD" value="HDD" class="radios">
+    <label for="HDD">HDD</label>
+    </div>
+    </div>
+    </div>
+    <hr>
+    <div class="col-4">
+      <div class="date">
+        <label for="date">შეზენის რიცხვი </label>
+        <input type="date" formControlName="laptop_purchase_date">
+      </div> 
+    <div class="number">  
+    <label for="number">ლეპტოპის ფასი</label>  
+    <input type="number" formControlName="laptop_price" [class.red-border]="
+    formGroup.get('laptop_price')?.invalid && formGroup.get('laptop_price')?.touched">
+    <small
+            *ngIf="
+              formGroup.get('laptop_ram')?.valid || formGroup.get('laptop_ram')?.untouched;
+              else explain
+            "
+            
+            >მხოლოდ რიცხვები</small
+          >
+          <ng-template #explain>გამოიყენე მხოლოდ რიცხვები</ng-template>
+
+    </div>  
+        </div>      
+    <div class="lapt-state">
+    <label for="radio">ლეპტოპის მდგომარეობა</label>
+    <br>
+    <input type="radio" id="new" name="laptop_state" value="new" formControlName="laptop_state">
+    <label for="new">ახალი</label>
+    <input type="radio" id="second" name="second" value="used">
+    <label for="second">მეორადი</label>
+  </div>
+  <button (click)="onClick()">Click me!</button>
+  </form>
+</div>  
+
+
+</div>
+

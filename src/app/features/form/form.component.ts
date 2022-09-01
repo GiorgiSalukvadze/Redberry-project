@@ -1,8 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { APIService } from 'src/app/shared/api.service';
+
 
 @Component({
   selector: 'app-form',
@@ -23,7 +23,7 @@ export class FormComponent implements OnInit {
   userInfo: [] = [];
   underLineBoolean!: boolean;
 
-  constructor(private api: APIService, private route: Router) {}
+  constructor(private api: APIService, private route: Router,) {}
 
   teamValueChange(e: any) {
     this.teamId = e.target.value;
@@ -94,8 +94,9 @@ export class FormComponent implements OnInit {
     if (this.formGroup.valid) {
       this.underLineBoolean = false;
       this.userInfo = this.formGroup.value;
+      this.api.setUser(this.userInfo)
       localStorage.setItem('formValues', JSON.stringify(this.formGroup.value));
-      this.route.navigate(['./laptop']);
+      this.route.navigateByUrl('/laptop');
     }
   }
 }
