@@ -1,8 +1,16 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  EmailValidator,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { APIService } from 'src/app/shared/api.service';
-
+import {
+  RxReactiveFormsModule,
+  RxwebValidators,
+} from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-form',
@@ -22,8 +30,9 @@ export class FormComponent implements OnInit {
   teamId!: number;
   userInfo: [] = [];
   underLineBoolean!: boolean;
+  onlyGeoRegex = /[ა-ჰ]/g;
 
-  constructor(private api: APIService, private route: Router,) {}
+  constructor(private api: APIService, private route: Router) {}
 
   teamValueChange(e: any) {
     this.teamId = e.target.value;
@@ -50,14 +59,22 @@ export class FormComponent implements OnInit {
     });
 
     this.formGroup = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.pattern(this.onlyGeoRegex),
+      ]),
       surname: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
+        Validators.pattern(this.onlyGeoRegex),
       ]),
       team: new FormControl('', [Validators.required]),
       position: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [
+        Validators.email,
+        RxwebValidators.endsWith({ value: 'redberry.ge' }),
+      ]),
       tel: new FormControl('', [
         Validators.required,
         Validators.minLength(13),
@@ -94,9 +111,11 @@ export class FormComponent implements OnInit {
     if (this.formGroup.valid) {
       this.underLineBoolean = false;
       this.userInfo = this.formGroup.value;
-      this.api.setUser(this.userInfo)
+      this.api.setUser(this.userInfo);
       localStorage.setItem('formValues', JSON.stringify(this.formGroup.value));
       this.route.navigateByUrl('/laptop');
+    } else {
+      alert('Please fill the form');
     }
   }
 }
