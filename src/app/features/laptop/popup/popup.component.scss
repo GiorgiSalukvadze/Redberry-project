@@ -1,0 +1,64 @@
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  overflow: auto; /* Enable scroll if needed */
+  width: 847px;
+  height: 537px;
+  left: 536px;
+  top: 271px;
+
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  img {
+    width: 137.46px;
+    height: 218.21px;
+  }
+  button {
+    margin-top: 50px;
+    align-items: center;
+    padding: 18px 60px;
+    width: 297px;
+    height: 60px;
+    background: #62a1eb;
+    border-radius: 8px;
+
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #ffffff;
+  }
+  a {
+    position: absolute;
+    width: 88px;
+    height: 24px;
+    left: 380px;
+    top: 469px;
+    margin-bottom: 30px;
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0089a7;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  a:hover {
+    cursor: pointer;
+  }
+}

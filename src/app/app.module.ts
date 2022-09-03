@@ -7,6 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LaptopModule } from './features/laptop/laptop.module';
 import { MainModule } from './features/main/main.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopupModule } from './features/laptop/popup/popup.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListComponent } from './features/list/list.component';
+import { ListModule } from './features/list/list.module';
+import { DetailsModule } from './features/list/details/details.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +23,11 @@ import { MainModule } from './features/main/main.module';
     MainModule,
     HttpClientModule,
     LaptopModule,
+    MatDialogModule,
+    PopupModule,
+    BrowserAnimationsModule,
+    ListModule,
+    DetailsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

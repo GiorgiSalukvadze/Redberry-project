@@ -1,0 +1,83 @@
+<div class="wrapper">
+  <div class="header">
+    <h2>ლეპტოპის ინფო</h2>
+  </div>
+  <div class="content">
+    <div class="col-1">
+      <div class="left-side">
+        <img
+          src="https://pcfy.redberryinternship.ge/{{ data.laptop.image }}"
+          alt=""
+        />
+      </div>
+      <div class="right-side">
+        <div class="p-tags">
+          <p>სახელი:</p>
+          <p>მეილი:</p>
+          <p>თიმი:</p>
+          <p>პოზიცია:</p>
+          <p>ტელ. ნომერი:</p>
+        </div>
+        <div class="values">
+          <p>{{ data.user.email }}</p>
+          <p>{{ data.user.name }} {{ data.user.surname }}</p>
+          <p>{{ data.user.team_id }}</p>
+          <p>{{ data.user.position_id }}</p>
+          <p>{{ data.user.phone_number }}</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-2">
+      <div class="col-2-left-side">
+        <div class="col-2-tags">
+          <p>ლეპტოპის სახელი:</p>
+          <p>ლეპტოპის ბრენდი:</p>
+          <p>RAM:</p>
+          <p>მეხსიერების ტიპი:</p>
+        </div>
+        <div class="col-2-values">
+          <p>{{ data.laptop.name }}</p>
+          <p>{{ data.laptop.brand_id }}</p>
+          <p>{{ data.laptop.ram }}</p>
+          <p>{{ data.laptop.hard_drive_type }}</p>
+        </div>
+      </div>
+      <div class="col-2-right-side">
+        <div class="col-2-right-tags">
+          <p>CPU:</p>
+          <p>CPU-ს ბირთვი:</p>
+          <p>CPU-ს ნაკადი:</p>
+        </div>
+        <div class="col-2-right-values">
+          <p>{{ data.laptop.cpu.name }}</p>
+          <p>{{ data.laptop.cpu.cores }}</p>
+          <p>{{ data.laptop.cpu.threads }}</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-3">
+      <div class="left">
+        <div class="col-3-left-tags">
+          <p>ლეპტოპის მდგომარეობა:</p>
+          <p>ლეპტოპის ფასი:</p>
+        </div>
+        <div class="col-3-left-values">
+          <p>{{ data.laptop.state }}</p>
+          <p>{{ data.laptop.price }}</p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="col-3-right-tags">
+          <p>შეძენის რიცხვი:</p>
+        </div>
+        <div class="col-3-right-values">
+          <p>
+            {{ data.laptop.purchase_date || "მონაცემი არ არის მითითებული" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

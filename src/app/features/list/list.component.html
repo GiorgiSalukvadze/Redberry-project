@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="info-wrapper">
+    <div class="content" *ngFor="let user of data">
+      <div class="left-side">
+        <img
+          src="https://pcfy.redberryinternship.ge/{{ user.laptop.image }}"
+          alt=""
+        />
+      </div>
+      <div class="right-side">
+        <p class="user">{{ user.user.name }} {{ user.user.surname }}</p>
+        <br />
+        <p class="laptop">{{ user.laptop.name }}</p>
+        <br />
+        <a routerLink="/details/{{ user.laptop.id }}">მეტის ნახვა</a>
+      </div>
+    </div>
+  </div>
+</div>

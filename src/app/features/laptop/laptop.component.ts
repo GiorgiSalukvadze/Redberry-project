@@ -1,16 +1,18 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { APIService } from 'src/app/shared/api.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupComponent } from './popup/popup.component';
 
 @Component({
   selector: 'app-laptop',
   templateUrl: './laptop.component.html',
   styleUrls: ['./laptop.component.scss'],
 })
-export class LaptopComponent implements OnInit {
+export class LaptopComponent implements OnInit, OnDestroy {
   @HostListener('window:beforeunload')
   saveValues() {
     localStorage.setItem('values', JSON.stringify(this.formGroup.value));
@@ -26,13 +28,14 @@ export class LaptopComponent implements OnInit {
   formGroup!: FormGroup;
   userInfo: any;
   userValues: any;
-  myToken = 'af53b3cae2c04d0c557ab5b071642009';
+  myToken = 'ab2b6c155bd4f90a5f0a030e028a63f2';
   img: any;
 
   constructor(
     private http: HttpClient,
     private api: APIService,
-    private route: Router
+    private route: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -93,7 +96,6 @@ export class LaptopComponent implements OnInit {
       });
     }
   }
-
   onFileSelected(event: any) {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -103,14 +105,16 @@ export class LaptopComponent implements OnInit {
       this.img = event.target.files[0];
     }
   }
-
+  openModal() {
+    this.dialog.open(PopupComponent, { disableClose: true });
+  }
   onClick(): void {
+    console.log(this.formGroup.get('laptop_type')?.value);
     if (this.formGroup.valid) {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'multipart/formdata');
       this.userInfo = localStorage.getItem('formValues');
       this.userValues = JSON.parse(this.userInfo);
-      console.log(this.userValues);
       const formdata = new FormData();
       formdata.append('name', this.userValues.name);
       formdata.append('surname', this.userValues.surname);
@@ -147,7 +151,6 @@ export class LaptopComponent implements OnInit {
         'laptop_state',
         this.formGroup.get('laptop_state')?.value
       );
-      console.log(this.formGroup.value);
       this.http
         .post(
           'https://pcfy.redberryinternship.ge/api/laptop/create',
@@ -156,12 +159,26 @@ export class LaptopComponent implements OnInit {
             headers: headers,
           }
         )
-        .subscribe((res) => {
-          console.log(res);
-        });
-      this.route.navigateByUrl('/laptop');
+        .subscribe(
+          (res) => {
+            console.log(res);
+          },
+          (err) => {
+            alert(`Ops... Something went wrong! 
+            Error Message: ${err.message}`);
+          },
+          () => {
+            console.log('lesgo');
+            this.openModal();
+            localStorage.clear();
+          }
+        );
     } else {
       alert('Please fill the form');
+      console.log(this.formGroup);
     }
+  }
+  ngOnDestroy(): void {
+    this.dialog.closeAll();
   }
 }

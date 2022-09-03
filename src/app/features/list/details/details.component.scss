@@ -1,0 +1,172 @@
+.wrapper {
+  width: 1920px;
+  height: 1207px;
+  .header {
+    position: absolute;
+    width: 309px;
+    height: 21px;
+    left: 806px;
+    top: 76px;
+    h2 {
+      font-family: "Helvetica Neue";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 21px;
+      color: #000000;
+    }
+  }
+  .content {
+    position: absolute;
+    width: 1178px;
+    height: 905px;
+    top: 181px;
+    left: 371px;
+    display: flex;
+    flex-direction: column;
+    hr {
+      width: 100%;
+      border: 1px solid #a5a5a5;
+      margin-bottom: 54px;
+    }
+    .col-1 {
+      display: flex;
+      flex-direction: row;
+      width: inherit;
+      margin-bottom: 84px;
+      .left-side {
+        img {
+          width: 577px;
+          height: 342px;
+        }
+      }
+      .right-side {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .p-tags {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 27px;
+          color: #2e2e2e;
+        }
+        .values {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 27px;
+          color: #797979;
+        }
+      }
+    }
+    .col-2 {
+      display: flex;
+      flex-direction: row;
+      width: inherit;
+      margin-bottom: 84px;
+      .col-2-left-side {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .col-2-tags {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 27px;
+          color: #2e2e2e;
+        }
+        .col-2-values {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 27px;
+          color: #797979;
+        }
+      }
+      .col-2-right-side {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .col-2-right-tags {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 27px;
+          color: #2e2e2e;
+        }
+        .col-2-right-values {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 27px;
+          color: #797979;
+        }
+      }
+    }
+    .col-3 {
+      display: flex;
+      flex-direction: row;
+      width: inherit;
+      margin-bottom: 84px;
+      .left {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .col-3-tags {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 27px;
+          color: #2e2e2e;
+        }
+        .col-3-values {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 27px;
+          color: #797979;
+        }
+      }
+      .right {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .col-3-right-tags {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 27px;
+          color: #2e2e2e;
+        }
+        .col-3-right-values {
+          font-family: "Helvetica Neue";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 22px;
+          line-height: 27px;
+          color: #797979;
+        }
+      }
+    }
+  }
+}

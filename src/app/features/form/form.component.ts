@@ -110,6 +110,7 @@ export class FormComponent implements OnInit {
     console.log(this.formGroup);
     if (this.formGroup.valid) {
       this.underLineBoolean = false;
+      this.api.hasUserInfo = true;
       this.userInfo = this.formGroup.value;
       this.api.setUser(this.userInfo);
       localStorage.setItem('formValues', JSON.stringify(this.formGroup.value));

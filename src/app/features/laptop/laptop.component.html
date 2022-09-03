@@ -21,6 +21,7 @@
           <input
             id="image"
             type="file"
+            accept="image/*"
             (change)="onFileSelected($event)"
             formControlName="laptop_image"
           />
@@ -29,12 +30,21 @@
           [src]="imgSrc"
           style="display: none"
           onload="this.style.display=''"
+          [class.red-border]="
+            formGroup.get('laptop_name')?.invalid &&
+            formGroup.get('laptop_name')?.touched
+          "
         />
       </div>
       <div class="reupload" *ngIf="imgSrc !== null">
         <h2>@ტვირთა შოთო სიხარულიძემ</h2>
         <label for="image">თავიდან ატვირთე</label>
-        <input id="image" type="file" (change)="onFileSelected($event)" />
+        <input
+          id="image"
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
       </div>
       <div class="col-1">
         <div class="lap-name">
@@ -179,6 +189,7 @@
               name="laptop_type"
               value="HDD"
               class="radios"
+              formControlName="laptop_type"
             />
             <label for="HDD">HDD</label>
           </div>
@@ -235,6 +246,7 @@
               name="laptop_state"
               value="used"
               class="radios"
+              formControlName="laptop_state"
             />
             <label for="second">მეორადი</label>
           </div>
