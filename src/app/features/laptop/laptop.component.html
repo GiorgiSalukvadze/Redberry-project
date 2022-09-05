@@ -29,7 +29,7 @@
         class="image"
         [class.red-border]="
           formGroup.get('laptop_image')?.invalid &&
-          formGroup.get('laptop_name')?.valid
+          formGroup.get('laptop_image')?.touched
         "
       >
         <div class="img" *ngIf="imgSrc == ''">

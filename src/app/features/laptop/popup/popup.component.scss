@@ -12,6 +12,33 @@
   background: #ffffff;
   border-radius: 8px;
 }
+@media screen and (max-width: 391px) {
+  .modal {
+    all: initial;
+    position: fixed;
+    z-index: 1;
+    left: 31px;
+    top: 29px;
+    overflow: auto;
+    width: 85%;
+    height: 90%;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+  .modal-content {
+    margin-top: 20px !important;
+  }
+  a {
+    all: initial !important;
+    margin-top: 20px !important;
+    font-family: "Helvetica Neue" !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: #0089a7 !important;
+  }
+}
 
 /* Modal Content/Box */
 .modal-content {

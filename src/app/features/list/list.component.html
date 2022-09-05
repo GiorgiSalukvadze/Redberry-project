@@ -1,16 +1,25 @@
 <div class="wrapper">
+  <div class="for-mobile">
   <div class="back" [routerLink]="['/main']">
-    <img src="../../../../assets/Group 4.png" />
+    <img src="../../../../assets/Group 4.png" class="desktop" />
+    <img src="../../../assets/Vector-mobile.png" alt="" class="mobile" />
   </div>
   <div class="header">
     <h2>ჩანაწერების სია</h2>
   </div>
+</div>
   <div class="info-wrapper">
     <div class="content" *ngFor="let user of data">
       <div class="left-side">
         <img
           src="https://pcfy.redberryinternship.ge/{{ user.laptop.image }}"
           alt=""
+          class="desktop"
+        />
+        <img
+          src="https://pcfy.redberryinternship.ge/{{ user.laptop.image }}"
+          alt=""
+          class="mobile"
         />
       </div>
       <div class="right-side">

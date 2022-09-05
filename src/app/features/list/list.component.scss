@@ -31,6 +31,9 @@
     img:hover {
       cursor: pointer;
     }
+    .mobile {
+      display: none;
+    }
   }
 }
 .info-wrapper {
@@ -52,6 +55,9 @@
     .left-side {
       width: 50%;
       height: 100%;
+      .mobile {
+        display: none;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -82,6 +88,100 @@
         display: flex;
         align-items: center;
         color: #2e2e2e;
+      }
+    }
+  }
+}
+@media screen and (max-width: 391px) {
+  .wrapper {
+    all: initial;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    height: 1003px;
+    background: #ffffff;
+    .back {
+      all: initial;
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+      img {
+        all: initial;
+        width: 9.21px;
+        height: 16px;
+      }
+    }
+    .for-mobile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 20px;
+      margin-bottom: 33px;
+      justify-content: space-around;
+    }
+    .header {
+      all: initial;
+    }
+    .info-wrapper {
+      all: initial;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 26px;
+      .content {
+        all: initial;
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 123pxpx;
+        background: #eafaff;
+        border: 1px solid #aed1ea;
+        border-radius: 20px;
+        .left-side {
+          width: 50%;
+          height: 100%;
+          .mobile {
+            display: none;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border-radius: 18px;
+          }
+        }
+        .right-side {
+          margin-left: 20px;
+          width: 50%;
+          height: 100%;
+          .user {
+            font-family: "Helvetica Neue";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 21px;
+            display: flex;
+            align-items: center;
+            color: #2e2e2e;
+          }
+          .laptop {
+            font-family: "Helvetica Neue";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            display: flex;
+            align-items: center;
+            color: #2e2e2e;
+          }
+          a {
+            margin-bottom: 10px;
+          }
+        }
       }
     }
   }

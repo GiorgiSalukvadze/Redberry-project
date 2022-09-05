@@ -30,7 +30,7 @@ export class LaptopComponent implements OnInit, OnDestroy {
   formGroup!: FormGroup;
   userInfo: any;
   userValues: any;
-  myToken = 'ab2b6c155bd4f90a5f0a030e028a63f2';
+  myToken = '0fd36a092437e7ada6906d8fd3774577';
   img: any;
   loading: boolean = true;
   forBorder: boolean = false;
@@ -124,7 +124,6 @@ export class LaptopComponent implements OnInit, OnDestroy {
     this.loading = true;
   }
   onClick(): void {
-    console.log(this.loading);
     if (this.formGroup.valid) {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'multipart/formdata');
@@ -190,7 +189,6 @@ export class LaptopComponent implements OnInit, OnDestroy {
     } else {
       this.buttoner();
       alert('Please fill the form');
-      console.log(this.formGroup);
     }
   }
   ngOnDestroy(): void {

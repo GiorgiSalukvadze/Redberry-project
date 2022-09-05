@@ -316,6 +316,7 @@
     .back {
       display: none;
     }
+
     .head-mobile {
       width: 100%;
       height: 95px;
@@ -359,6 +360,61 @@
       all: initial;
       width: 390px;
       background: #ffffff;
+      .image {
+        all: initial;
+        position: static;
+        width: 358px;
+        height: 244px;
+        margin-bottom: 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        img {
+          all: initial;
+          width: 100%;
+          height: inherit;
+          border-radius: 18px;
+        }
+        background: #f7f7f7;
+        border: 2px dashed #4386a9;
+        border-radius: 18px;
+        .img {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 50px;
+          .image-txt {
+            all: initial;
+            height: 52px;
+            font-family: "Helvetica Neue";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 38px;
+            color: #4386a9;
+          }
+          label {
+            all: initial;
+            width: 50%;
+            height: 40px;
+            background: #62a1eb;
+            border-radius: 8px;
+            font-family: "Helvetica Neue";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 24px;
+            color: #ffffff;
+            text-align: center;
+            padding-top: 10px;
+          }
+          input {
+            all: initial;
+            display: none;
+          }
+        }
+      }
       form {
         all: initial;
         border-radius: 18px;
@@ -382,6 +438,24 @@
             overflow: auto;
           }
         }
+        .reupload {
+          label {
+            all: initial;
+            background: #62a1eb;
+            border-radius: 8px;
+            font-family: "Helvetica Neue";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 24px;
+            color: #ffffff;
+            text-align: center;
+            padding-top: 20px;
+          }
+          input {
+            display: none;
+          }
+        }
         hr {
           width: 100%;
         }
@@ -402,6 +476,7 @@
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
+          margin-bottom: 30px;
           .save {
             width: 162px;
             height: 46px;

@@ -11,6 +11,9 @@ small {
   width: 1920px;
   height: 1080px;
   background: #f7f7f7;
+  .head-mobile {
+    display: none;
+  }
   .back {
     position: absolute;
     width: 53px;
@@ -19,9 +22,6 @@ small {
     top: 53px;
     img:hover {
       cursor: pointer;
-    }
-    .head-mobile {
-      display: none;
     }
   }
   .head-wrapper {

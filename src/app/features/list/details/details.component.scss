@@ -1,7 +1,10 @@
 .wrapper {
   width: 1920px;
   height: 1207px;
-  background: #FFFFFF;
+  background: #ffffff;
+  .mobile {
+    display: none;
+  }
   .back {
     position: absolute;
     width: 53px;
@@ -186,6 +189,88 @@
           color: #797979;
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 391px) {
+  .wrapper {
+    all: initial;
+    width: 390px;
+    height: 844px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    .content {
+      all: initial;
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      justify-content: center;
+      .col-1,
+      .col-2,
+      .col-3 {
+        all: initial;
+        .left-side {
+          display: flex;
+          justify-content: center;
+          img {
+            all: initial;
+            width: 98%;
+          }
+        }
+        .right-side {
+          all: initial;
+          width: 100%;
+          display: flex;
+        }
+        .col-2-right-side {
+          all: initial;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          .col-2-right-values {
+            margin-left: 70px;
+          }
+        }
+        .right {
+          all: initial;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        .col-3-right-values {
+          margin-left: 65px;
+        }
+      }
+    }
+  }
+  .for-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+    margin-bottom: 33px;
+    justify-content: space-around;
+    .back {
+      all: initial;
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+      img {
+        all: initial;
+        width: 9.21px;
+        height: 16px;
+      }
+    }
+    .header {
+      all: initial;
     }
   }
 }
