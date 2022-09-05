@@ -46,11 +46,9 @@ export class LaptopComponent implements OnInit, OnDestroy {
     this.userInfo = this.api.getUser();
     this.api.getBrandMethod().subscribe((res) => {
       this.brandList = res.data;
-      console.log(this.brandList);
     });
     this.api.getCpuMethod().subscribe((res) => {
       this.cpuList = res.data;
-      console.log(this.cpuList);
     });
     this.underLineBoolean = false;
     this.formGroup = new FormGroup({
@@ -81,7 +79,6 @@ export class LaptopComponent implements OnInit, OnDestroy {
         Validators.pattern(/^[0-9]\d*$/),
       ]),
     });
-    console.log(this.formGroup);
     this.storageValues = localStorage.getItem('values');
     this.returnedValues = JSON.parse(this.storageValues);
     if (this.returnedValues) {
@@ -102,7 +99,6 @@ export class LaptopComponent implements OnInit, OnDestroy {
   }
   onFileSelected(event: any) {
     this.forBorder = true;
-    console.log(this.forBorder);
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
       const reader = new FileReader();

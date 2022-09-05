@@ -15,7 +15,6 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getLaptopMethod().subscribe((res) => {
       this.data = res.data;
-      console.log(this.data);
     });
   }
 }

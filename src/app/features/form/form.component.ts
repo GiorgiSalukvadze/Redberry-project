@@ -35,14 +35,10 @@ export class FormComponent implements OnInit {
 
   teamValueChange(e: any) {
     this.teamId = e.target.value;
-    console.log(e.target.value);
     this.api.getPositionMethod().subscribe((res) => {
       this.positionList = res.data.filter((obj: any) => {
         return obj.team_id == this.teamId;
       });
-      console.log(res);
-      console.log(res.data);
-      console.log(this.positionList);
     });
   }
 
@@ -54,7 +50,6 @@ export class FormComponent implements OnInit {
     this.underLineBoolean = true;
     this.api.getTeamMethod().subscribe((res) => {
       this.teamList = res.data;
-      console.log(this.teamList);
     });
 
     this.formGroup = new FormGroup({
@@ -100,13 +95,9 @@ export class FormComponent implements OnInit {
         this.teamId = this.returnedValues.team;
         return obj.team_id == this.teamId;
       });
-      console.log(res);
-      console.log(res.data);
-      console.log(this.positionList);
     });
   }
   onClick(): void {
-    console.log(this.formGroup);
     if (this.formGroup.valid) {
       this.underLineBoolean = false;
       this.api.hasUserInfo = true;

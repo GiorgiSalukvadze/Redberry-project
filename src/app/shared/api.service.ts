@@ -13,10 +13,10 @@ export class APIService {
   brandURL = 'https://pcfy.redberryinternship.ge/api/brands';
   cpuURL = 'https://pcfy.redberryinternship.ge/api/cpus';
   userInfo: any;
-  hasUserInfo: boolean = true;
-  myToken = 'ab2b6c155bd4f90a5f0a030e028a63f2';
+  hasUserInfo: boolean = false;
+  myToken = '0fd36a092437e7ada6906d8fd3774577';
   getLaptopURL =
-    'https://pcfy.redberryinternship.ge/api/laptops?token=ab2b6c155bd4f90a5f0a030e028a63f2';
+    'https://pcfy.redberryinternship.ge/api/laptops?token=0fd36a092437e7ada6906d8fd3774577';
 
   getTeamMethod() {
     return this.http.get(this.teamURL).pipe(
@@ -63,7 +63,7 @@ export class APIService {
   getMoreInfo(id: number) {
     return this.http
       .get(
-        `https://pcfy.redberryinternship.ge/api/laptop/${id}?token=ab2b6c155bd4f90a5f0a030e028a63f2`
+        `https://pcfy.redberryinternship.ge/api/laptop/${id}?token=0fd36a092437e7ada6906d8fd3774577`
       )
       .pipe(
         map((res: any) => {

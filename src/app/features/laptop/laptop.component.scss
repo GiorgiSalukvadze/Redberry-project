@@ -487,6 +487,19 @@
             }
           }
         }
+        .date {
+          input {
+            all: initial;
+            width: 358px;
+            height: 60px;
+            border: 1.8px solid #8ac0e2;
+            border-radius: 8px;
+            display: flex;
+            font-size: 24px;
+            align-items: center;
+            padding-left: 10px;
+          }
+        }
         input:not(.radios) {
           all: initial;
           width: 358px;

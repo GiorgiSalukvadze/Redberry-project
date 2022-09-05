@@ -11,18 +11,18 @@ import { APIService } from 'src/app/shared/api.service';
 export class DetailsComponent implements OnInit {
   id: any;
   data: any;
+  team: any;
+  position: any;
+  brand: any;
+
   constructor(private route: ActivatedRoute, private api: APIService) {}
-  onClick() {
-    console.log('ait');
-  }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
     });
-    console.log(this.id);
     this.api.getMoreInfo(this.id).subscribe((res) => {
       this.data = res.data;
-      console.log(this.data);
     });
   }
 }
