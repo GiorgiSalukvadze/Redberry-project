@@ -68,6 +68,7 @@
           <input
             type="text"
             formControlName="laptop_name"
+            placeholder="HP"
             [class.red-border]="
               formGroup.get('laptop_name')?.invalid &&
               formGroup.get('laptop_name')?.touched
@@ -125,6 +126,7 @@
           <label for="cpu-core">CPU-ს ბირთვი</label>
           <input
             type="text"
+            placeholder="14"
             id="cpu-core"
             formControlName="laptop_cpu_cores"
             [class.red-border]="
@@ -148,6 +150,7 @@
             type="text"
             id="cpu-threads"
             formControlName="laptop_cpu_threads"
+            placeholder="365"
             [class.red-border]="
               formGroup.get('laptop_cpu_threads')?.invalid &&
               formGroup.get('laptop_cpu_threads')?.touched
@@ -172,6 +175,7 @@
             type="text"
             id="RAM"
             formControlName="laptop_ram"
+            placeholder="16"
             [class.red-border]="
               formGroup.get('laptop_ram')?.invalid &&
               formGroup.get('laptop_ram')?.touched
@@ -226,6 +230,7 @@
           <input
             type="number"
             formControlName="laptop_price"
+            placeholder="0000"
             [class.red-border]="
               formGroup.get('laptop_price')?.invalid &&
               formGroup.get('laptop_price')?.touched

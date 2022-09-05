@@ -31,6 +31,7 @@
           <input
             type="text"
             formControlName="name"
+            placeholder="თემური"
             [class.red-border]="
               formGroup.get('name')?.invalid && formGroup.get('name')?.touched
             "
@@ -51,6 +52,7 @@
           <input
             type="text"
             formControlName="surname"
+            placeholder="თათარაშვილი"
             [class.red-border]="
               formGroup.get('surname')?.invalid &&
               formGroup.get('surname')?.touched
@@ -108,6 +110,7 @@
       <input
         type="text"
         formControlName="email"
+        placeholder="temotatara@redberry.ge"
         id="mail"
         [class.red-border]="
           formGroup.get('email')?.invalid && formGroup.get('email')?.touched
@@ -130,6 +133,7 @@
         <input
           type="text"
           formControlName="tel"
+          placeholder="+995599123456789"
           id="tel"
           [class.red-border]="
             formGroup.get('tel')?.invalid && formGroup.get('tel')?.touched

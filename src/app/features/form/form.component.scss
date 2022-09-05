@@ -7,6 +7,15 @@
 small {
   margin-top: 5px;
 }
+::placeholder {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .wrapper {
   width: 1920px;
   height: 1080px;
@@ -210,6 +219,15 @@ small {
   display: none;
 }
 @media screen and (max-width: 391px) {
+  ::placeholder {
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    padding-left: 12px;
+    color: rgba(0, 0, 0, 0.6);
+  }
   .wrapper {
     all: initial;
     width: 390px;

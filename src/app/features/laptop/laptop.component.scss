@@ -4,6 +4,14 @@
 .red-border {
   border: 1.8px solid red !important;
 }
+::placeholder {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.6);
+}
 .head-wrapper {
   position: absolute;
   left: 684px;
@@ -306,6 +314,15 @@
     box-sizing: border-box;
   }
   .body-wrapper {
+    ::placeholder {
+      font-family: "Helvetica Neue";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+      padding-left: 12px;
+      color: rgba(0, 0, 0, 0.6);
+    }
     all: initial;
     width: 390px;
     background: #ffffff;
