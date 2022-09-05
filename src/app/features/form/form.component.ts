@@ -30,7 +30,6 @@ export class FormComponent implements OnInit {
   teamId!: number;
   userInfo: [] = [];
   underLineBoolean!: boolean;
-  onlyGeoRegex = /[ა-ჰ]/g;
 
   constructor(private api: APIService, private route: Router) {}
 
@@ -62,12 +61,12 @@ export class FormComponent implements OnInit {
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
-        Validators.pattern(this.onlyGeoRegex),
+        Validators.pattern(/[ა-ჰ]/g),
       ]),
       surname: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
-        Validators.pattern(this.onlyGeoRegex),
+        Validators.pattern(/[ა-ჰ]/g),
       ]),
       team: new FormControl('', [Validators.required]),
       position: new FormControl('', Validators.required),

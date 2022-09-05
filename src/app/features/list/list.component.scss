@@ -5,33 +5,63 @@
   flex-direction: row;
   background: #ffffff;
   padding-left: 371px;
+  padding-right: 371px;
   padding-top: 197px;
+  .header {
+    position: absolute;
+    width: 309px;
+    height: 21px;
+    left: 825px;
+    top: 76px;
+    h2 {
+      font-family: "Helvetica Neue";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 21px;
+      color: #000000;
+    }
+  }
+  .back {
+    position: absolute;
+    width: 53px;
+    height: 53px;
+    left: 70px;
+    top: 53px;
+    img:hover {
+      cursor: pointer;
+    }
+  }
 }
 .info-wrapper {
+  width: 1278px;
   display: flex;
   flex-direction: row;
-  width: 1278px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  gap: 60px;
   .content {
     display: flex;
     flex-direction: row;
-    width: 563px;
+    width: 47%;
     height: 205px;
-    margin-right: 100px;
-    margin-bottom: 65px;
     background: #eafaff;
     border: 1px solid #aed1ea;
     border-radius: 20px;
     .left-side {
-      width: 266px;
+      width: 50%;
       height: 100%;
       img {
+        width: 100%;
         height: 100%;
         padding: 10px;
-        border-radius: 10px;
+        border-radius: 18px;
       }
     }
     .right-side {
-      width: 283px;
+      margin-left: 30px;
+      width: 50%;
       height: 100%;
       .user {
         font-family: "Helvetica Neue";

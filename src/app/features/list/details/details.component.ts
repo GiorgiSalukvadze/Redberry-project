@@ -12,7 +12,9 @@ export class DetailsComponent implements OnInit {
   id: any;
   data: any;
   constructor(private route: ActivatedRoute, private api: APIService) {}
-
+  onClick() {
+    console.log('ait');
+  }
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');

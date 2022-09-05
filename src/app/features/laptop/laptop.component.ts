@@ -6,6 +6,8 @@ import { APIService } from 'src/app/shared/api.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from './popup/popup.component';
+import { error } from '@rxweb/reactive-form-validators';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-laptop',
@@ -19,7 +21,7 @@ export class LaptopComponent implements OnInit, OnDestroy {
   }
   underLineBoolean!: boolean;
   selectedFile = null;
-  imgSrc: any = null;
+  imgSrc: any = '';
   brandList: any;
   cpuList: any;
   returnedValues: any;
@@ -30,6 +32,8 @@ export class LaptopComponent implements OnInit, OnDestroy {
   userValues: any;
   myToken = 'ab2b6c155bd4f90a5f0a030e028a63f2';
   img: any;
+  loading: boolean = true;
+  forBorder: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -97,19 +101,30 @@ export class LaptopComponent implements OnInit, OnDestroy {
     }
   }
   onFileSelected(event: any) {
+    this.forBorder = true;
+    console.log(this.forBorder);
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onload = (e) => (this.imgSrc = reader.result);
       reader.readAsDataURL(file);
       this.img = event.target.files[0];
+    } else {
     }
   }
   openModal() {
     this.dialog.open(PopupComponent, { disableClose: true });
   }
+  loader() {
+    if (this.formGroup.valid) {
+      this.loading = false;
+    }
+  }
+  buttoner() {
+    this.loading = true;
+  }
   onClick(): void {
-    console.log(this.formGroup.get('laptop_type')?.value);
+    console.log(this.loading);
     if (this.formGroup.valid) {
       const headers = new HttpHeaders();
       headers.set('Content-Type', 'multipart/formdata');
@@ -151,29 +166,29 @@ export class LaptopComponent implements OnInit, OnDestroy {
         'laptop_state',
         this.formGroup.get('laptop_state')?.value
       );
-      this.http
-        .post(
-          'https://pcfy.redberryinternship.ge/api/laptop/create',
-          formdata,
+      this.api.LaptopCreate(formdata, headers).subscribe(
+        (res) => {
           {
-            headers: headers,
-          }
-        )
-        .subscribe(
-          (res) => {
-            console.log(res);
-          },
-          (err) => {
-            alert(`Ops... Something went wrong! 
-            Error Message: ${err.message}`);
-          },
-          () => {
-            console.log('lesgo');
             this.openModal();
             localStorage.clear();
+            this.buttoner();
           }
-        );
+        },
+        (error) => {
+          if (error.name == 'TimeoutError') {
+            alert(
+              'Time Out Error!\nThis Might Be Caused By Heavy Image\nTry Uploading Smaller One'
+            );
+          } else if (error.status == 422) {
+            alert('Seems Like You Missing Something!');
+          } else if (error) {
+            alert(`Unknown Error!\nError Message: ${error.message}`);
+          }
+          this.buttoner();
+        }
+      );
     } else {
+      this.buttoner();
       alert('Please fill the form');
       console.log(this.formGroup);
     }

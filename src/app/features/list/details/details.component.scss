@@ -1,6 +1,17 @@
 .wrapper {
   width: 1920px;
   height: 1207px;
+  background: #FFFFFF;
+  .back {
+    position: absolute;
+    width: 53px;
+    height: 53px;
+    left: 70px;
+    top: 53px;
+    img:hover {
+      cursor: pointer;
+    }
+  }
   .header {
     position: absolute;
     width: 309px;
@@ -44,8 +55,9 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
+        margin-left: 65px;
         .p-tags {
           font-family: "Helvetica Neue";
           font-style: normal;
@@ -53,6 +65,7 @@
           font-size: 22px;
           line-height: 27px;
           color: #2e2e2e;
+          margin-right: 80px;
         }
         .values {
           font-family: "Helvetica Neue";
@@ -73,7 +86,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
         .col-2-tags {
           font-family: "Helvetica Neue";
@@ -82,6 +95,7 @@
           font-size: 22px;
           line-height: 27px;
           color: #2e2e2e;
+          margin-right: 80px;
         }
         .col-2-values {
           font-family: "Helvetica Neue";
@@ -96,8 +110,9 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
+        margin-left: 103px;
         .col-2-right-tags {
           font-family: "Helvetica Neue";
           font-style: normal;
@@ -105,6 +120,7 @@
           font-size: 22px;
           line-height: 27px;
           color: #2e2e2e;
+          margin-right: 80px;
         }
         .col-2-right-values {
           font-family: "Helvetica Neue";
@@ -125,17 +141,18 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
-        .col-3-tags {
+        .col-3-left-tags {
           font-family: "Helvetica Neue";
           font-style: normal;
           font-weight: 500;
           font-size: 22px;
           line-height: 27px;
           color: #2e2e2e;
+          margin-right: 20px;
         }
-        .col-3-values {
+        .col-3-left-values {
           font-family: "Helvetica Neue";
           font-style: normal;
           font-weight: 400;
@@ -148,7 +165,8 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-start;
+        margin-left: 103px;
         align-items: center;
         .col-3-right-tags {
           font-family: "Helvetica Neue";
@@ -157,6 +175,7 @@
           font-size: 22px;
           line-height: 27px;
           color: #2e2e2e;
+          margin-right: 48px;
         }
         .col-3-right-values {
           font-family: "Helvetica Neue";

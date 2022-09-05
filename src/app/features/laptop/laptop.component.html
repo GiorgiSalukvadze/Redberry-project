@@ -1,4 +1,7 @@
 <div class="body-wrapper">
+  <div class="back" [routerLink]="['/register']">
+    <img src="../../../../assets/Group 4.png" />
+  </div>
   <div class="head-wrapper">
     <a routerLink="/register" class="personal">თანამშრომლის ინფო</a>
     <a>ლეპტოპის მახასიათებლები</a>
@@ -9,10 +12,27 @@
       <hr class="underline-2" />
     </ng-template>
   </div>
+  <div class="head-mobile">
+    <img
+      src="../../../assets/Vector-mobile.png"
+      alt=""
+      class="mobile"
+      [routerLink]="['/main']"
+    />
+    <h2>თანამშრომლის ინფო</h2>
+    <br />
+    <h3>2/2</h3>
+  </div>
   <div class="form-wrapper">
     <form [formGroup]="formGroup" class="form">
-      <div class="image">
-        <div class="img" *ngIf="imgSrc == null">
+      <div
+        class="image"
+        [class.red-border]="
+          formGroup.get('laptop_image')?.invalid &&
+          formGroup.get('laptop_name')?.valid
+        "
+      >
+        <div class="img" *ngIf="imgSrc == ''">
           <h2 class="image-txt">
             ჩააგდე ან ატვირთე <br />
             ლეპტოპის ფოტო
@@ -30,13 +50,9 @@
           [src]="imgSrc"
           style="display: none"
           onload="this.style.display=''"
-          [class.red-border]="
-            formGroup.get('laptop_name')?.invalid &&
-            formGroup.get('laptop_name')?.touched
-          "
         />
       </div>
-      <div class="reupload" *ngIf="imgSrc !== null">
+      <div class="reupload" *ngIf="imgSrc !== ''">
         <h2>@ტვირთა შოთო სიხარულიძემ</h2>
         <label for="image">თავიდან ატვირთე</label>
         <input
@@ -252,7 +268,17 @@
           </div>
         </div>
       </div>
-      <button (click)="onClick()" class="save">დამახსოვრება</button>
+      <div class="buttons">
+        <a routerLink="/register" class="a-back">უკან</a>
+        <div class="save" (click)="loader()">
+          <button (click)="onClick()" *ngIf="loading">დამახსოვრება</button>
+          <img
+            src="../../../assets/spinner.gif"
+            alt=""
+            *ngIf="loading == false"
+          />
+        </div>
+      </div>
     </form>
   </div>
 </div>

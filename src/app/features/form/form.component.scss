@@ -11,6 +11,19 @@ small {
   width: 1920px;
   height: 1080px;
   background: #f7f7f7;
+  .back {
+    position: absolute;
+    width: 53px;
+    height: 53px;
+    left: 70px;
+    top: 53px;
+    img:hover {
+      cursor: pointer;
+    }
+    .head-mobile {
+      display: none;
+    }
+  }
   .head-wrapper {
     position: absolute;
     left: 684px;
@@ -195,4 +208,121 @@ small {
 
 .d-none {
   display: none;
+}
+@media screen and (max-width: 391px) {
+  .wrapper {
+    all: initial;
+    width: 390px;
+    background: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .head-wrapper {
+      display: none;
+    }
+    .back {
+      display: none;
+    }
+    .head-mobile {
+      margin-top: 20px;
+      display: block;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+      img {
+        margin-left: 10px;
+        width: 10px;
+        height: 16px;
+      }
+      h2 {
+        font-family: "Helvetica Neue";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #232323;
+      }
+      h3 {
+        position: absolute;
+        width: 21px;
+        height: 17px;
+        left: 184px;
+        top: 50px;
+        font-family: "Helvetica Neue";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #898989;
+      }
+    }
+    .form {
+      all: initial;
+      width: 390px;
+      background: #ffffff;
+      padding-left: 10px;
+      form {
+        all: initial;
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        .group {
+          all: initial;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        input {
+          all: initial;
+          width: 358px !important;
+          height: 60px !important;
+          border: 1.8px solid #8ac0e2;
+          border-radius: 8px;
+        }
+        button {
+          all: initial;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          width: 132px;
+          height: 46px;
+          background: #62a1eb;
+          border-radius: 8px;
+          margin: 40px 15px 30px 0px;
+          align-self: flex-end;
+        }
+      }
+      #team,
+      #position {
+        all: initial;
+        width: 358px;
+        height: 60px;
+        background: #ebebeb;
+        border-radius: 8px;
+        font-family: "Helvetica Neue";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.04em;
+        padding-left: 16px;
+        color: #000000;
+        option {
+          height: 60px;
+          background: #ebebeb;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
 }

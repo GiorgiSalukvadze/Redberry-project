@@ -1,4 +1,7 @@
 <div class="wrapper">
+  <div class="back" [routerLink]="['/main']">
+    <img src="../../../../assets/Group 4.png" class="desktop" />
+  </div>
   <div class="head-wrapper">
     <a class="personal">თანამშრომლის ინფო</a>
     <a routerLink="/laptop">ლეპტოპის მახასიათებლები</a>
@@ -8,6 +11,17 @@
     <ng-template #right>
       <hr class="underline-2" />
     </ng-template>
+  </div>
+  <div class="head-mobile">
+    <img
+      src="../../../assets/Vector-mobile.png"
+      alt=""
+      class="mobile"
+      [routerLink]="['/main']"
+    />
+    <h2>თანამშრომლის ინფო</h2>
+    <br />
+    <h3>1/2</h3>
   </div>
   <div class="form">
     <form [formGroup]="formGroup">
@@ -27,7 +41,6 @@
               formGroup.get('name')?.valid || formGroup.get('name')?.untouched;
               else explain
             "
-            
             >მინიმუმ 2 სიმბოლო, ქართული ასოები</small
           >
           <ng-template #explain>#წერე ქართულად</ng-template>

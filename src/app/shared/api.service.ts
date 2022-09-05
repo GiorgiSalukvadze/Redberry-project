@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs';
+import { map, timeout } from 'rxjs';
+import { time } from '@rxweb/reactive-form-validators';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class APIService {
   brandURL = 'https://pcfy.redberryinternship.ge/api/brands';
   cpuURL = 'https://pcfy.redberryinternship.ge/api/cpus';
   userInfo: any;
-  hasUserInfo: boolean = false;
+  hasUserInfo: boolean = true;
   myToken = 'ab2b6c155bd4f90a5f0a030e028a63f2';
   getLaptopURL =
     'https://pcfy.redberryinternship.ge/api/laptops?token=ab2b6c155bd4f90a5f0a030e028a63f2';
@@ -65,6 +66,18 @@ export class APIService {
         `https://pcfy.redberryinternship.ge/api/laptop/${id}?token=ab2b6c155bd4f90a5f0a030e028a63f2`
       )
       .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
+  }
+  LaptopCreate(fd: any, header: any) {
+    return this.http
+      .post('https://pcfy.redberryinternship.ge/api/laptop/create', fd, {
+        headers: header,
+      })
+      .pipe(
+        timeout(5000),
         map((res: any) => {
           return res;
         })
